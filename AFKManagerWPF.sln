@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFKManagerWPF", "AFKManagerWPF.csproj", "{37DFC036-208C-4140-8038-96D4C4EC9CFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37DFC036-208C-4140-8038-96D4C4EC9CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37DFC036-208C-4140-8038-96D4C4EC9CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37DFC036-208C-4140-8038-96D4C4EC9CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37DFC036-208C-4140-8038-96D4C4EC9CFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7895DDE9-C82B-4020-B241-D76D4BE0C1E6}
+	EndGlobalSection
+EndGlobal
