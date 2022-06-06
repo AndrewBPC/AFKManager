@@ -8,6 +8,6 @@ namespace AFKManager
 {
     public class afkTextModel
     {
-        public string Text { get; set; }
+        public string T { get; set; }
     }
 }

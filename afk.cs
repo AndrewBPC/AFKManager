@@ -20,7 +20,7 @@ namespace AFKManager
         
         Timer AFKTimer;
 
-        private ObservableCollection<afkTextModel> _afkText =  new ObservableCollection<afkTextModel>();
+        private Collection<afkTextModel> _afkText =  new Collection<afkTextModel>();
         private bool isOn { get; set; } = true;
         public afk(afkSettings settings)
         {
@@ -57,7 +57,7 @@ namespace AFKManager
 
             if (GetWindowText(GetHandle(), Buff, nChars) > 0)
             {
-                if (Buff.ToString() == "Euro Truck Simulator 2 Multiplayer")
+                if (Buff.ToString() == "Euro Truck Simulator 2 Multiplayer" || Buff.ToString() == "American Truck Simulator Multiplayer")
                 {
                     return true;
                 }
@@ -71,13 +71,15 @@ namespace AFKManager
             return false;
         }
 
-        public static bool CheckETS()
+        public static bool CheckGame()
         {
 
             IntPtr etsHandle = FindWindow("prism3d", "Euro Truck Simulator 2 Multiplayer");
             
             if (etsHandle == IntPtr.Zero)
             {
+                etsHandle = FindWindow("prism3d", "American Truck Simulator Multiplayer");
+                if (etsHandle != IntPtr.Zero) return true;
                 return false;
             }
             else
@@ -120,9 +122,9 @@ namespace AFKManager
             {
                 if (!isEtsForegroud) return;
                 inputSim.Keyboard.KeyPress(VirtualKeyCode.VK_Y);
-                inputSim.Keyboard.TextEntry(_afkText[i].Text);
+                inputSim.Keyboard.TextEntry(_afkText[i].T);
                 inputSim.Keyboard.KeyPress(VirtualKeyCode.RETURN);
-                await Task.Delay(530);
+                await Task.Delay(550);
             }
             
         }

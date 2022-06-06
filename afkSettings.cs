@@ -14,6 +14,7 @@ namespace AFKManager
         public byte vConfig { get; set; } = 1;
         public double time { get; set; } = 600000;
         public ObservableCollection<afkTextModel> afkText { get; set; } = new ObservableCollection<afkTextModel>();
+        
         public int hotkey { get; set; } = 90;
 
     }

@@ -32,7 +32,7 @@
                     <DataTemplate>
                         <DockPanel HorizontalAlignment="Stretch" LastChildFill="True" >
                             <Button Margin="10" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalContentAlignment="Top" Width="20" Height="20" Padding="0" Content="-" Click="DeleteStroke"/>
-                            <TextBox  Margin="0 0 0 10"  TextChanged="afkTextChanged" materialDesign:HintAssist.Hint="Type text here" Style="{StaticResource MaterialDesignTextBox}"  Foreground="White" MaxLength="127" MaxLines="1" Text="{Binding Text}"/>
+                            <TextBox  Margin="0 0 0 10"  TextChanged="afkTextChanged" materialDesign:HintAssist.Hint="Type text here" Style="{StaticResource MaterialDesignTextBox}" Foreground="White" MaxLength="127" MaxLines="1" Text="{Binding T, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </DockPanel>
 

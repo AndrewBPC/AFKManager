@@ -25,10 +25,19 @@ namespace AFKManager
         UpdateInfoEventArgs _args;
         [DllImport("wininet.dll", SetLastError = true)]
         private static extern long DeleteUrlCacheEntry(string lpszUrlName);
+        [DllImport("urlmon.dll", CharSet = CharSet.Ansi)]
+        private static extern int UrlMkSetSessionOption(int dwOption, string pBuffer, int dwBufferLength, int dwReserved);
+
+        const int URLMON_OPTION_USERAGENT = 0x10000001;
         public updateWindow(UpdateInfoEventArgs args)
         {
-            DeleteUrlCacheEntry("https://bottleneckpc.ru/");
+            DeleteUrlCacheEntry(@"http://k96025ii.beget.tech");
+            string ua = "Mozilla/5.0";
+            UrlMkSetSessionOption(URLMON_OPTION_USERAGENT, ua, ua.Length, 0);
+
             InitializeComponent();
+            
+            changelogWebBrowser.Source = new Uri(args.ChangelogURL);
             _args = args;
             newVersion.Text += _args.CurrentVersion;
             oldVersion.Text += _args.InstalledVersion.ToString();

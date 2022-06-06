@@ -12,7 +12,7 @@ namespace AFKManager
 {
     class telemetry
     {
-        public SCSSdkTelemetry Telemetry;
+        private SCSSdkTelemetry Telemetry;
         public static bool isEtsPaused { get; private set; }
         public static bool isTelemetryConnected { get; private set; }
         public static bool isProgramSDKWork { get; private set; }

@@ -14,10 +14,7 @@ namespace AFKManager
         {
             AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
             AutoUpdater.RunUpdateAsAdmin = false;
-            AutoUpdater.HttpUserAgent = "AutoUpdate";
-            
-            
-            
+            AutoUpdater.HttpUserAgent = "AutoUpdate";  
         }
         
         private void AutoUpdaterOnCheckForUpdateEvent(UpdateInfoEventArgs args)
@@ -36,7 +33,8 @@ namespace AFKManager
 
         public void StartUpdate()
         {
-            AutoUpdater.Start("https://bottleneckpc.ru/update/update.xml");
+            AutoUpdater.HttpUserAgent = "Mozilla/5.0";
+            AutoUpdater.Start(@"http://k96025ii.beget.tech/afkmanager/update.xml");
         }
 
     }

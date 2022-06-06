@@ -15,12 +15,13 @@
                 <TextBlock x:Name="newVersion" Text="Newest version is " Foreground="White" Margin="5"/>
                 <TextBlock x:Name="oldVersion" Text="Your version is " Foreground="White" Margin="5"/>
                 <TextBlock Text="Changlog:" HorizontalAlignment="Center" Foreground="White" Margin="5"/>
-                <WebBrowser x:Name="changelogWebBrowser" Height="250" Width="250" Source="https://bottleneckpc.ru"/>
+                <!-- I Know that it a bad way, but in toward i will replace browser-->
+                <WebBrowser x:Name="changelogWebBrowser" Height="250" Width="250"/>
 
             </StackPanel>
         </materialDesign:Card>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10">
-            <!--<Button Content="Remind me later" Margin="10"/>-->
+            
             <Button Content="Update" Margin="10" Click="UpdateButton_Click"/>
         </StackPanel>
 
