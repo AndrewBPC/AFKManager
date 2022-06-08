@@ -26,7 +26,7 @@ namespace AFKManager
         {
 
             _afkText = settings.afkText;
-            AFKTimer = new Timer(Convert.ToInt32(settings.time));
+            AFKTimer = new Timer(Convert.ToInt32(settings.Time));
             AFKTimer.Elapsed += WriteKey;
             AFKTimer.Start();
             

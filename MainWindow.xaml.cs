@@ -45,11 +45,11 @@ namespace AFKManager
             {
                 Debug.WriteLine(settingsFromJson.ToString());
                 _settings.afkText = settingsFromJson.afkText;
-                _settings.time = settingsFromJson.time;
+                _settings.Time = settingsFromJson.Time;
                 _settings.hotkey = settingsFromJson.hotkey;
                 _settings.vConfig = (settingsFromJson.vConfig);
-                interval.Text = (_settings.time / 60000).ToString() + " min";
-                timeSlider.Value = _settings.time / 60000;
+                interval.Text = (_settings.Time / 60000).ToString() + " min";
+                timeSlider.Value = _settings.Time / 60000;
                 hotkeyText(_settings.hotkey);
             }
                 
@@ -144,27 +144,10 @@ namespace AFKManager
             stateOfAFKManager = false;
             AFKStatus.Foreground = Brushes.Red;
         }
-
-        byte isFirstStart = 0;
-        private void afkTextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (isFirstStart <2)
-            {
-                isFirstStart++;
-                return;
-            }
-        }
-
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (isFirstStart < 3)
-            {
-                isFirstStart++;
-                return;
-            }
-            
             interval.Text = e.NewValue.ToString() + " min";
-            _settings.time = e.NewValue * 60000;
+            _settings.Time = e.NewValue * 60000;
         }
         public void StatusOfGame(object sender, EventArgs e)
         {

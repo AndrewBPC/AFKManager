@@ -7,8 +7,6 @@ using System.Windows;
 using Gameloop.Vdf;
 using Gameloop.Vdf.Linq;
 
-using System.Linq;
-
 namespace AFKManager
 {
     class TelemetryInstaller
@@ -33,11 +31,20 @@ namespace AFKManager
         }
         private void CheckTelemetry()
         {
+            
             if (!File.Exists(Path.Combine(GamePath, @"bin\win_x64\plugins\scs-telemetry.dll")))
             {
-                DirectoryInfo dI = new DirectoryInfo(Path.Combine(GamePath, @"bin\win_x64\plugins\")); 
-                if (!dI.Exists) dI.Create();
-                File.Copy("./files/scs-telemetry.dll", Path.Combine(GamePath, @"bin\win_x64\plugins\scs-telemetry.dll"));
+                try
+                {
+                    DirectoryInfo dI = new DirectoryInfo(Path.Combine(GamePath, @"bin\win_x64\plugins\"));
+                    if (!dI.Exists) dI.Create();
+                    File.Copy("./files/scs-telemetry.dll", Path.Combine(GamePath, @"bin\win_x64\plugins\scs-telemetry.dll"));
+                }
+                catch (DirectoryNotFoundException dirEx)
+                {
+                    MessageBox.Show("Check Telemetry failed\n" + dirEx.Message);
+                }
+                
             }
         }
         
@@ -52,7 +59,7 @@ namespace AFKManager
       
         private void SearchSteamLibraryFolders()
         {
-            VToken vdf = VdfConvert.Deserialize(File.ReadAllText(SteamPath + @"/steamapps/libraryfolders.vdf")).Value;
+            VToken vdf = VdfConvert.Deserialize(File.ReadAllText(Path.Combine(SteamPath, @"/steamapps/libraryfolders.vdf"))).Value;
             string SteamLibraryWithGame = String.Empty;
             int i = 0;
             var tempObj = vdf[i.ToString()];
@@ -68,7 +75,6 @@ namespace AFKManager
                 }
                 i++;
                 tempObj = vdf[i.ToString()];
-
             }
         }
     }

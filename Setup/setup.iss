@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "AFKManager"
-#define MyAppVersion "1.1"
+#define MyAppVersion "1.2.0.0"
 #define MyAppPublisher "BottleneckPC"
 #define MyAppURL ""
 #define MyAppExeName "AFKManager.exe"
@@ -16,7 +16,7 @@
 AppId={{1AA36DBA-8BFE-452E-92C2-EA622CA59DAD}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-;AppVerName={#MyAppName} {#MyAppVersion}
+AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
@@ -47,6 +47,7 @@ Source: "C:\Users\Admin\source\repos\AFKManagerWPF\bin\Release\MaterialDesignThe
 Source: "C:\Users\Admin\source\repos\AFKManagerWPF\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Admin\source\repos\AFKManagerWPF\bin\Release\WindowsInput.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Admin\source\repos\AFKManagerWPF\bin\Release\SCSSdkClient.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Admin\source\repos\AFKManagerWPF\bin\Release\Gameloop.Vdf.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Admin\source\repos\AFKManagerWPF\bin\Release\files\*"; DestDir: "{app}\files"; Flags: ignoreversion recursesubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

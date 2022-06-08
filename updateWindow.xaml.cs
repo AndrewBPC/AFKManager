@@ -31,14 +31,12 @@ namespace AFKManager
         const int URLMON_OPTION_USERAGENT = 0x10000001;
         public updateWindow(UpdateInfoEventArgs args)
         {
+            _args = args;
             DeleteUrlCacheEntry(@"http://k96025ii.beget.tech");
             string ua = "Mozilla/5.0";
             UrlMkSetSessionOption(URLMON_OPTION_USERAGENT, ua, ua.Length, 0);
-
             InitializeComponent();
-            
             changelogWebBrowser.Source = new Uri(args.ChangelogURL);
-            _args = args;
             newVersion.Text += _args.CurrentVersion;
             oldVersion.Text += _args.InstalledVersion.ToString();
         }
@@ -54,7 +52,7 @@ namespace AFKManager
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            Debug.Print("asdasd");
+            
         }
     }
 }
