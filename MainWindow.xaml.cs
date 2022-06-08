@@ -36,23 +36,25 @@ namespace AFKManager
         
         public MainWindow()
         {
-            InitializeComponent();
             _settings = new afkSettings();
-            
-            afkSettings settingsFromJson = JsonConvert.DeserializeObject<afkSettings>(File.ReadAllText(pathToSave));
-                
-            if (settingsFromJson != null)
+            InitializeComponent();
+
+            if (File.Exists(pathToSave))
             {
-                Debug.WriteLine(settingsFromJson.ToString());
-                _settings.afkText = settingsFromJson.afkText;
-                _settings.Time = settingsFromJson.Time;
-                _settings.hotkey = settingsFromJson.hotkey;
-                _settings.vConfig = (settingsFromJson.vConfig);
-                interval.Text = (_settings.Time / 60000).ToString() + " min";
-                timeSlider.Value = _settings.Time / 60000;
-                hotkeyText(_settings.hotkey);
+                afkSettings settingsFromJson = JsonConvert.DeserializeObject<afkSettings>(File.ReadAllText(pathToSave));
+
+                if (settingsFromJson != null)
+                {
+                    Debug.WriteLine(settingsFromJson.ToString());
+                    _settings.afkText = settingsFromJson.afkText;
+                    _settings.Time = settingsFromJson.Time;
+                    _settings.hotkey = settingsFromJson.hotkey;
+                    _settings.vConfig = (settingsFromJson.vConfig);
+                    interval.Text = (_settings.Time / 60000).ToString() + " min";
+                    timeSlider.Value = _settings.Time / 60000;
+                    hotkeyText(_settings.hotkey);
+                }
             }
-                
            
             TextList.ItemsSource = _settings.afkText;
             globalKeyboardHook = new GlobalKeyboardHook();
@@ -144,6 +146,7 @@ namespace AFKManager
             stateOfAFKManager = false;
             AFKStatus.Foreground = Brushes.Red;
         }
+        
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             interval.Text = e.NewValue.ToString() + " min";

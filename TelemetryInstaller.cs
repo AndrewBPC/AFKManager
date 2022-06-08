@@ -59,7 +59,7 @@ namespace AFKManager
       
         private void SearchSteamLibraryFolders()
         {
-            VToken vdf = VdfConvert.Deserialize(File.ReadAllText(Path.Combine(SteamPath, @"/steamapps/libraryfolders.vdf"))).Value;
+            VToken vdf = VdfConvert.Deserialize(File.ReadAllText(Path.Combine(SteamPath, @"steamapps\libraryfolders.vdf"))).Value;
             string SteamLibraryWithGame = String.Empty;
             int i = 0;
             var tempObj = vdf[i.ToString()];
@@ -70,7 +70,7 @@ namespace AFKManager
                 {
                     SteamLibraryWithGame = vdf[i.ToString()]["path"].ToString();
                     GamePath = Path.Combine(SteamLibraryWithGame, @"SteamApps\common\Euro Truck Simulator 2\");
-                    if(File.Exists(GamePath)) Debug.WriteLine(GamePath);
+                    
                     return;
                 }
                 i++;
