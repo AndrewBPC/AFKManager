@@ -7,6 +7,8 @@
 
 **AntiAFK for ETS2/ATS2**
 
+![screen](https://raw.githubusercontent.com/AndrewBPC/AFKManager/master/afkManager_srceen.png)
+
 **ENG**
 By this programm you don't need to care about kick off server if you stay on the same place long time.
 
